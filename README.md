@@ -1,6 +1,6 @@
 # HomePlate
 
-[Home Assistant](https://www.home-assistant.io/) E-Ink Dashboard on the [Inkplate 10](https://www.crowdsupply.com/e-radionica/inkplate-10)
+[Home Assistant](https://www.home-assistant.io/) E-Ink Dashboard on the [Inkplate 6](https://soldered.com/de/produkt/soldered-inkplate-6-platine-mitdem-6-e-paper) based on [lanrat](https://github.com/lanrat)'s [Inkplate 10](https://www.crowdsupply.com/e-radionica/inkplate-10) [Implementation](https://github.com/lanrat/homeplate/tree/main).
 
 ![homeplate](https://user-images.githubusercontent.com/164192/150657050-d919b70e-d3a0-42e3-a842-9d7684b0dcc7.jpeg)
 
