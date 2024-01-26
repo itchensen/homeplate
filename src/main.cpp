@@ -1,5 +1,5 @@
 // Next 3 lines are a precaution, you can ignore those, and the example would also work without them
-#if !defined(ARDUINO_INKPLATE10) && !defined(ARDUINO_INKPLATE10V2)
+#if !defined(ARDUINO_INKPLATE10) && !defined(ARDUINO_INKPLATE10V2) && !defined(ARDUINO_INKPLATE6V2) && !defined(ARDUINO_ESP32_DEV)
 #error "Wrong board selection for this example, please select Inkplate 10 in the boards menu."
 #endif
 
@@ -34,6 +34,8 @@ void setup()
     mutexDisplay = xSemaphoreCreateMutex();
 
     sleepBoot = (rtc_get_reset_reason(0) == DEEPSLEEP_RESET); // test for deep sleep wake
+
+    //Serial.printf("\n[SETUP] evaluating sleepboot: %u\n", sleepBoot);
 
     // only run on fresh boot
     if (!sleepBoot)

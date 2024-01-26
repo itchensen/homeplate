@@ -15,7 +15,7 @@ void displayWiFiQR()
     QRCode qrcode;
     uint8_t qrcodeData[qrcode_getBufferSize(version)];
     qrcode_initText(&qrcode, qrcodeData, version, ECC_MEDIUM, buf);
-    uint32_t size = 15;
+    uint32_t size = 10; //15
 
     uint32_t y = (E_INK_HEIGHT - (qrcode.size * size)) / 2;  // center QR code vertically
     uint32_t x = (E_INK_WIDTH - (qrcode.size * size) - 100); // 100 px padding on right side
@@ -24,7 +24,7 @@ void displayWiFiQR()
     displayStart();
     display.selectDisplayMode(INKPLATE_1BIT);
     display.setTextColor(BLACK, WHITE); // Set text color to black on white
-    display.setFont(&Roboto_64);
+    display.setFont(&Roboto_32);
     display.setTextSize(1);
     display.clearDisplay();
     displayEnd();
@@ -32,11 +32,12 @@ void displayWiFiQR()
     renderQR(qrcode, x, y, size);
 
     y = y + 100; // lower text a little
-    // 100px padding on each size, 20px padding between text
-    uint16_t h = centerTextX("WiFi", 100, x - 100, y);
-    y = y + 60;
-    h = centerTextX(QR_WIFI_NAME, 100, x - 100, y + h + 30);
-    h = centerTextX(QR_WIFI_PASSWORD, 100, x - 100, y + (h + 30) * 2);
+    // 100px padding on each size, 20px padding between text //50
+    static uint8_t padding = 50;
+    uint16_t h = centerTextX("WiFi", padding, x - padding, y);
+    y = y + 30;
+    h = centerTextX(QR_WIFI_NAME, padding, x - padding, y + h + 30);
+    h = centerTextX(QR_WIFI_PASSWORD, padding, x - padding, y + (h + 30) * 2);
 
     i2cStart();
     displayStart();
